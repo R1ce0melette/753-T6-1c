@@ -11,6 +11,15 @@ pipeline {
             steps {
                 echo 'Stage 2 - Unit and Integration Test using Selenium'
             }
+            post{
+                success{
+                    mail to: "s223608299@deakin.edu.au",
+                    subject: "Build status email",
+                    body: "${currentBuild.result}: ${BUILD_URL}",
+                    attachLog: true,
+                    compressLog: true
+                    }
+            }
         }
         stage('codeAnalysis') {
             steps {
@@ -36,13 +45,6 @@ pipeline {
             steps {
                 echo 'Stage 7 - deploy to production server - AWS EC2 Instance'
             }
-            post{
-            success{
-                mail to: "s223608299@deakin.edu.au",
-                subject: "Build status email",
-                body: "Build successful"
-            }
-        }
         }
     }
 }
