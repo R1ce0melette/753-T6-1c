@@ -10,6 +10,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Stage 2 - Unit and Integration Test using Selenium'
+                script{
+                    sleep (10)
+                }
             }
             post{
             success{
@@ -28,6 +31,9 @@ pipeline {
         stage('secScan') {
             steps {
                 echo 'Stage 4 - Vulnerability Scan using Checkmarx'
+                script{
+                    sleep (10)
+                }
             }
             post{
             success{
