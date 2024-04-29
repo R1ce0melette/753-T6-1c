@@ -1,1 +1,36 @@
-test4
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Stage 1 - Build'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Unit and Integration Test'
+            }
+        }
+        stage('codeAnalysis') {
+            steps {
+                echo 'Code analysis'
+            }
+        }
+        stage('secScan') {
+            steps {
+                echo 'Vulnerability scanning'
+            }
+        }
+        stage('stageTest') {
+            steps {
+                echo 'Integration testing on Test env'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy to Production'
+            }
+        }
+    }
+}
