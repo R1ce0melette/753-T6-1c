@@ -38,9 +38,11 @@ pipeline {
             }
             post{
             success{
-                mail to: "s223608299@deakin.edu.au",
+                emailext to: "s223608299@deakin.edu.au",
                 subject: "Build status email",
-                body: "Build successful"
+                body: "Build successful",
+                attachLog: true,
+                attachmentsPattern: 'generatedFile.txt'
             }
         }
         }
