@@ -42,7 +42,6 @@ pipeline {
                 subject: "Build status email",
                 body: "Build successful",
                 attachLog: true,
-                attachmentsPattern: 'generatedFile.txt'
             }
         }
         }
