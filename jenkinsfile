@@ -28,7 +28,7 @@ pipeline {
                         to: 's223608299@deakin.edu.vn'
                     )
                 }
-        }
+        } }
         stage('codeAnalysis') {
             steps {
                 echo 'Stage 3 - Code Analysis using Checkmarx'
