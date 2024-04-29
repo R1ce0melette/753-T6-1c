@@ -4,33 +4,45 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Stage 1 - Build'
+                echo 'Stage 1 - Build: Using Jenkins'
             }
         }
         stage('Test') {
             steps {
-                echo 'Unit and Integration Test'
+                echo 'Stage 2 - Unit and Integration Test using Selenium'
             }
         }
         stage('codeAnalysis') {
             steps {
-                echo 'Code analysis'
+                echo 'Stage 3 - Code Analysis using Checkmarx'
             }
         }
         stage('secScan') {
             steps {
-                echo 'Vulnerability scanning'
+                echo 'Stage 4 - Vulnerability Scan using Checkmarx'
+            }
+        }
+        stage('Staging') {
+            steps {
+                echo 'Stage 5 - deploy to staging server - AWS EC2 Instance'
             }
         }
         stage('stageTest') {
             steps {
-                echo 'Integration testing on Test env'
+                echo 'Stage 6 - Integration test of Staging'
             }
         }
-        stage('Deploy') {
+        stage('Product') {
             steps {
-                echo 'Deploy to Production'
+                echo 'Stage 7 - deploy to production server - AWS EC2 Instance'
             }
+            post{
+            success{
+                mail to: "s223608299@deakin.edu.au",
+                subject: "Build status email",
+                body: "Build successful"
+            }
+        }
         }
     }
 }
