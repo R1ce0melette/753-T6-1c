@@ -41,7 +41,6 @@ pipeline {
                 emailext to: "s223608299@deakin.edu.au",
                 subject: "Build status email",
                 body: "Build successful",
-                attachLog: true
             }
         }
         }
