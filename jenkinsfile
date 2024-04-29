@@ -25,7 +25,7 @@ pipeline {
         }
         stage('codeAnalysis') {
             steps {
-                echo 'Stage 3 - Code Analysis using Checkmarx'
+                echo 'Stage 3 - Code Analysis using Static Code Analysis plugin on Jenkins'
             }
         }
         stage('secScan') {
