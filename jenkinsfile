@@ -16,10 +16,10 @@ pipeline {
             }
             post{
             success{
-                emailext body: 'Build success', to: 's223608299@deakin.edu.au', subject: 'Build success', attachLog: true
+                emailext body: 'Build success', to: 's223608299@deakin.edu.au', subject: 'Test phase success', attachLog: true
                 }
             failure{
-                emailext body: 'Build failed', to: 's223608299@deakin.edu.au', subject: 'Build failed', attachLog: true
+                emailext body: 'Build failed', to: 's223608299@deakin.edu.au', subject: 'Test phase failed', attachLog: true
                 }
             }
         }
@@ -37,10 +37,10 @@ pipeline {
             }
             post{
             success{
-                emailext body: 'Build success', to: 's223608299@deakin.edu.au', subject: 'Build success', attachLog: true
+                emailext body: 'Build success', to: 's223608299@deakin.edu.au', subject: 'No vulnerability found', attachLog: true
                 }
             failure{
-                emailext body: 'Build failed', to: 's223608299@deakin.edu.au', subject: 'Build failed', attachLog: true
+                emailext body: 'Build failed', to: 's223608299@deakin.edu.au', subject: 'Security test failed', attachLog: true
                 }
             }
         }
