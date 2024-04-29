@@ -11,15 +11,23 @@ pipeline {
             steps {
                 echo 'Stage 2 - Unit and Integration Test using Selenium'
             }
-            emailext{
+            post{
                 success{
-                    mail to: "s223608299@deakin.edu.au",
-                    subject: "Build status email",
-                    body: "Build finished",
-                    attachLog: true,
-                    compressLog: true
+                    emailext{
+                        subject:"build successful",
+                        body: "Build finished.",
+                        attachmentsPattern: '**/*',
+                        to: 's223608299@deakin.edu.vn'
                     }
-            }
+                }
+                failure{
+                    emailext{
+                        subject:"build failed",
+                        body: "Build finished.",
+                        attachmentsPattern: '**/*',
+                        to: 's223608299@deakin.edu.vn'
+                    }
+                }
         }
         stage('codeAnalysis') {
             steps {
