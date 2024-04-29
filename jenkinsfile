@@ -37,7 +37,7 @@ pipeline {
                 echo 'Stage 7 - deploy to production server - AWS EC2 Instance'
             }
             post{
-            success{
+            always{
                 emailext body: 'A Test EMail', to: 's223608299@deakin.edu.au', subject: 'Test', attachLog: true
             }
         }
