@@ -38,7 +38,7 @@ pipeline {
             }
             post{
             success{
-                emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+                emailext body: 'A Test EMail', to: 's223608299@deakin.edu.au', subject: 'Test', attachLog: true
             }
         }
         }
