@@ -11,11 +11,11 @@ pipeline {
             steps {
                 echo 'Stage 2 - Unit and Integration Test using Selenium'
             }
-            post{
+            emailext{
                 success{
                     mail to: "s223608299@deakin.edu.au",
                     subject: "Build status email",
-                    body: "${currentBuild.result}: ${BUILD_URL}",
+                    body: "Build finished",
                     attachLog: true,
                     compressLog: true
                     }
