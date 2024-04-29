@@ -13,20 +13,20 @@ pipeline {
             }
             post{
                 success{
-                    emailext{
+                    emailext(
                         subject: 'Build successful',
                         body: 'Build finished.',
                         attachmentsPattern: '**/*',
                         to: 's223608299@deakin.edu.vn'
-                    }
+                    )
                 }
                 failure{
-                    emailext{
+                    emailext(
                         subject:"build failed",
                         body: "Build finished.",
                         attachmentsPattern: '**/*',
                         to: 's223608299@deakin.edu.vn'
-                    }
+                    )
                 }
         }
         stage('codeAnalysis') {
