@@ -14,8 +14,8 @@ pipeline {
             post{
                 success{
                     emailext{
-                        subject:"build successful",
-                        body: "Build finished.",
+                        subject: 'Build successful',
+                        body: 'Build finished.',
                         attachmentsPattern: '**/*',
                         to: 's223608299@deakin.edu.vn'
                     }
