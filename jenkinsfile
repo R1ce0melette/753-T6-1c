@@ -11,6 +11,14 @@ pipeline {
             steps {
                 echo 'Stage 2 - Unit and Integration Test using Selenium'
             }
+            post{
+            success{
+                emailext body: 'Build success', to: 's223608299@deakin.edu.au', subject: 'Build success', attachLog: true
+                }
+            failure{
+                emailext body: 'Build failed', to: 's223608299@deakin.edu.au', subject: 'Build failed', attachLog: true
+                }
+            }
         }
         stage('codeAnalysis') {
             steps {
@@ -20,6 +28,14 @@ pipeline {
         stage('secScan') {
             steps {
                 echo 'Stage 4 - Vulnerability Scan using Checkmarx'
+            }
+            post{
+            success{
+                emailext body: 'Build success', to: 's223608299@deakin.edu.au', subject: 'Build success', attachLog: true
+                }
+            failure{
+                emailext body: 'Build failed', to: 's223608299@deakin.edu.au', subject: 'Build failed', attachLog: true
+                }
             }
         }
         stage('Staging') {
@@ -36,11 +52,6 @@ pipeline {
             steps {
                 echo 'Stage 7 - deploy to production server - AWS EC2 Instance'
             }
-            post{
-            always{
-                emailext body: 'A Test EMail', to: 's223608299@deakin.edu.au', subject: 'Test', attachLog: true
-            }
-        }
-        }
     }
+}
 }
